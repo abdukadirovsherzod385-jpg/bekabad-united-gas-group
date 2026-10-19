@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEKABAD UNITED GAS GROUP MCHJ - Аҳоли газ жиҳозларига хизмат кўрсатиш</title>
+    <meta name="description" content="Бекобод шаҳрида аҳоли газ жиҳозларини таъмирлаш, газ сизиб чиқишини бартараф этиш, дудбуронларни тозалаш ва газ лойиҳа-смета ҳужжатлари.">
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0d47a1;
+            --primary-light: #1976d2;
+            --primary-dark: #0a2558;
+            --accent: #f59e0b;
+            --danger: #dc2626;
+            --danger-bg: #fee2e2;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --success: #16a34a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Top Alert Bar */
+        .top-alert {
+            background: #991b1b;
+            color: white;
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .top-alert a {
+            color: #fef08a;
+            text-decoration: underline;
+            margin-left: 5px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--primary-dark);
+        }
+        .logo i {
+            font-size: 30px;
+            color: var(--primary-light);
+        }
+        .logo-text h2 {
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+        .logo-text span {
+            font-size: 11px;
+            color: var(--gray);
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+        .nav-phone-btn {
+            background: var(--primary);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2);
+            transition: transform 0.2s, background 0.2s;
+        }
+        .nav-phone-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0a2558 0%, #1e3a8a 50%, #0d47a1 100%);
+            color: white;
+            padding: 80px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            color: #93c5fd;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .hero h1 span {
+            color: #facc15;
+        }
+        .hero p {
+            font-size: 16px;
+            color: #cbd5e1;
+            margin-bottom: 32px;
+            max-width: 580px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-main {
+            background: #facc15;
+            color: #0f172a;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 16px rgba(250, 204, 21, 0.35);
+            transition: all 0.2s;
+        }
+        .btn-main:hover {
+            transform: translateY(-2px);
+            background: #eab308;
+        }
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s;
+        }
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Quick Call Card in Hero */
+        .hero-card {
+            background: white;
+            color: var(--dark);
+            padding: 36px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .hero-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+        }
+        .hero-card p {
+            font-size: 13px;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        .hotline-box {
+            background: #eff6ff;
+            border: 2px dashed #93c5fd;
+            border-radius: 16px;
+            padding: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .hotline-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .hotline-number {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin: 6px 0;
+            display: block;
+            text-decoration: none;
+        }
+        .hotline-sub {
+            font-size: 12px;
+            color: var(--gray);
+        }
+        .emergency-pill {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #b91c1c;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Emergency Numbers Grid */
+        .emergency-section {
+            background: #fee2e2;
+            padding: 30px 24px;
+            border-top: 2px solid #fca5a5;
+            border-bottom: 2px solid #fca5a5;
+        }
+        .emergency-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .emergency-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .emergency-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #991b1b;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+        }
+        .em-box {
+            background: white;
+            border-radius: 12px;
+            padding: 14px;
+            box-shadow: 0 2px 8px rgba(185, 28, 28, 0.08);
+            border-left: 4px solid #dc2626;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+        .em-box:hover {
+            transform: translateY(-2px);
+        }
+        .em-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+        }
+        .em-num {
+            font-size: 20px;
+            font-weight: 800;
+            color: #dc2626;
+        }
+
+        /* Services Section */
+        .section {
+            padding: 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 50px;
+        }
+        .section-badge {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 14px;
+        }
+        .section-desc {
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 24px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px 24px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(13, 71, 161, 0.08);
+            border-color: #bfdbfe;
+        }
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 24px;
+        }
+        .service-card:nth-child(2) .service-icon {
+            background: #fee2e2;
+            color: var(--danger);
+        }
+        .service-card h3 {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .service-card p {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        .service-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        .service-features li {
+            font-size: 13px;
+            color: #334155;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .service-features li i {
+            color: var(--success);
+            font-size: 12px;
+        }
+        .btn-card {
+            background: #f1f5f9;
+            color: var(--primary);
+            text-align: center;
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+            display: block;
+        }
+        .btn-card:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Online Application Form Section */
+        .form-section {
+            background: #f1f5f9;
+            padding: 80px 24px;
+        }
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .form-info {
+            background: linear-gradient(135deg, #0d47a1, #1e3a8a);
+            color: white;
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .form-info h3 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .form-info p {
+            color: #cbd5e1;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .info-item i {
+            font-size: 20px;
+            color: #facc15;
+            margin-top: 3px;
+        }
+        .info-item h4 {
+            font-size: 15px;
+            font-weight: 700;
+        }
+        .info-item p {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 0;
+        }
+
+        .form-body {
+            padding: 48px;
+        }
+        .form-body h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 24px;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            font-size: 14px;
+            color: var(--dark);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.1);
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .btn-submit {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-submit:hover {
+            background: var(--primary-light);
+        }
+        .form-success {
+            display: none;
+            background: #dcfce7;
+            color: #15803d;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Telegram Bot Card */
+        .bot-banner {
+            background: #eff6ff;
+            border-radius: 24px;
+            padding: 48px;
+            border: 1px solid #bfdbfe;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-top: 60px;
+        }
+        .bot-banner h3 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+        .bot-banner p {
+            color: var(--gray);
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+        .qr-wrapper {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .qr-wrapper img {
+            width: 180px;
+            height: 180px;
+            display: block;
+            margin: 0 auto 12px;
+        }
+        .qr-wrapper span {
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 60px 24px 30px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-logo h3 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        .footer-links h4 {
+            color: white;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+        .footer-links ul {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid #334155;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-container, .form-container, .bot-banner, .footer-container {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шошилинч Огоҳлантириш Панжараси -->
+    <div class="top-alert">
+        <span>🚨 <b>Шошилинч авария ҳолатлари учун:</b> Бекобод шаҳар газ ГТБ АДХ: <b>+998 55 903 22 14</b> ёки Газ хизмати <b>104</b></span>
+        <a href="tel:+998559032214"><i class="fa-solid fa-phone"></i> Қўнғироқ қилиш</a>
+    </div>
+
+    <!-- Навигация -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-fire-flame-curved"></i>
+                <div class="logo-text">
+                    <h2>BEKABAD UNITED GAS GROUP</h2>
+                    <span>Масъулияти Чекланган Жамияти</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Хизматлар</a></li>
+                <li><a href="#emergency">Шошилинч рақамлар</a></li>
+                <li><a href="#apply">Ариза қолдириш</a></li>
+                <li><a href="#bot">Телеграм Бот</a></li>
+                <li><a href="tel:+998998230188" class="nav-phone-btn"><i class="fa-solid fa-phone"></i> +998 99 823 01 88</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Қисми -->
+    <section class="hero">
+        <div class="hero-container">
+            <div>
+                <div class="hero-badge">
+                    <i class="fa-solid fa-shield-halved"></i> 24/7 Сертификатланган Газ Сервис Хизмати
+                </div>
+                <h1>Аҳоли газ жиҳозларини таъмирлаш ва <span>хавфсиз сервис</span> кўрсатиш</h1>
+                <p>«BEKABAD UNITED GAS GROUP» МЧЖ — Бекобод шаҳрида маиший газ жиҳозларини созлаш, сизиб чиқишни бартараф этиш, мўриларни тозалаш ва лойиҳа-смета ҳужжатларини тайёрлаш бўйича ишончли ҳамкорингиз.</p>
+                <div class="hero-buttons">
+                    <a href="#apply" class="btn-main"><i class="fa-solid fa-file-pen"></i> Онлайн ариза бериш</a>
+                    <a href="https://t.me/bekabad_united_gas_group_bot" target="_blank" class="btn-outline"><i class="fa-brands fa-telegram"></i> Telegram Бот</a>
+                </div>
+            </div>
+
+            <!-- Шошилинч Телефон Блоги -->
+            <div class="hero-card">
+                <h3>Диспетчерлик хизмати</h3>
+                <p>Мутахассис чақириш ёки саволлар учун тўғридан-тўғри боғланинг:</p>
+                <div class="hotline-box">
+                    <span class="hotline-label">Марказий алоқа рақами</span>
+                    <a href="tel:+998998230188" class="hotline-number">+998 99 823 01 88</a>
+                    <span class="hotline-sub">Ҳар куни 24/7 узлуксиз хизмат</span>
+                </div>
+                <div class="emergency-pill">
+                    <i class="fa-solid fa-triangle-exclamation" style="font-size: 20px;"></i>
+                    <div>
+                        <b>Газ сизиб чиқиши аниқланса:</b><br>
+                        Бекобод ГТБ АДХ: <b>+998 55 903 22 14</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Фавқулодда Шошилинч Рақамлар -->
+    <section class="emergency-section" id="emergency">
+        <div class="emergency-container">
+            <div class="emergency-header">
+                <div class="emergency-title">
+                    <i class="fa-solid fa-truck-medical" style="font-size: 24px;"></i>
+                    <span>Фавқулодда ва шошилинч хизматлар рақамлари</span>
+                </div>
+                <span style="font-size: 13px; color: #7f1d1d; font-weight: 600;">Бекобод шаҳри ва Тошкент вилояти бўйича</span>
+            </div>
+            <div class="emergency-grid">
+                <a href="tel:104" class="em-box">
+                    <div>
+                        <div class="em-name">Газ авария хизмати</div>
+                        <div class="em-num">104</div>
+                    </div>
+                    <i class="fa-solid fa-fire text-danger" style="font-size: 24px; color: #dc2626;"></i>
+                </a>
+                <a href="tel:+998559032214" class="em-box">
+                    <div>
+                        <div class="em-name">Бекобод ГТБ АДХ</div>
+                        <div class="em-num" style="font-size: 15px;">55 903 22 14</div>
+                    </div>
+                    <i class="fa-solid fa-phone" style="font-size: 20px; color: #dc2626;"></i>
+                </a>
+                <a href="tel:101" class="em-box">
+                    <div>
+                        <div class="em-name">Ёнғин хавфсизлиги (ФВВ)</div>
+                        <div class="em-num">101</div>
+                    </div>
+                    <i class="fa-solid fa-fire-extinguisher" style="font-size: 24px; color: #ea580c;"></i>
+                </a>
+                <a href="tel:103" class="em-box">
+                    <div>
+                        <div class="em-name">Тез тиббий ёрдам</div>
+                        <div class="em-num">103</div>
+                    </div>
+                    <i class="fa-solid fa-kit-medical" style="font-size: 24px; color: #16a34a;"></i>
+                </a>
+                <a href="tel:102" class="em-box">
+                    <div>
+                        <div class="em-name">Ички ишлар (ИИБ)</div>
+                        <div class="em-num">102</div>
+                    </div>
+                    <i class="fa-solid fa-shield" style="font-size: 24px; color: #2563eb;"></i>
+                </a>
+                <a href="tel:112" class="em-box">
+                    <div>
+                        <div class="em-name">Ягона тезкор навбатчи</div>
+                        <div class="em-num">112</div>
+                    </div>
+                    <i class="fa-solid fa-bolt" style="font-size: 24px; color: #d97706;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Асосий Хизматлар -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <span class="section-badge">Бизнинг хизматлар</span>
+            <h2 class="section-title">Аҳоли учун 4 та асосий сервис йўналиши</h2>
+            <p class="section-desc">Барча ишлар давлат хавфсизлик стандартлари ва малакали усталар томонидан расмий кафолат билан бажарилади.</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- 1. Газ жиҳозлари носозлиги -->
+            <div class="service-card">
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-wrench"></i></div>
+                    <h3>1. Газ жиҳозлари носозлиги</h3>
+                    <p>Газ плиталари, 2 контурли иситиш қозонлари (котёл), колонка ва титанларни таъмирлаш ва созлаш.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Диагностика ва техник кўрик</li>
+                        <li><i class="fa-solid fa-check"></i> Эҳтиёт қисмларни алмаштириш</li>
+                        <li><i class="fa-solid fa-check"></i> Кафолатли таъмир</li>
+                    </ul>
+                </div>
+                <a href="#apply" class="btn-card" onclick="selectService('1. Газ жиҳозлари носозлиги')">Ариза қолдириш</a>
+            </div>
+
+            <!-- 2. Газ сизиб чиқиши -->
+            <div class="service-card" style="border-top: 4px solid var(--danger);">
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <h3>2. Газ сизиб чиқиши (Авария)</h3>
+                    <p>Газ қувурлари ва уланиш жойларидаги сизиб чиқишларни тезкор бартараф этиш ва хавфсизликни таъминлаш.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Тезкор авариявий бригада</li>
+                        <li><i class="fa-solid fa-check"></i> Газ анализатори билан текширув</li>
+                        <li><i class="fa-solid fa-check"></i> Жўмрак ва редукторларни янгилаш</li>
+                    </ul>
+                </div>
+                <a href="#apply" class="btn-card" style="background: #fee2e2; color: #dc2626;" onclick="selectService('2. Газ сизиб чиқиши')">Шошилинч мурожаат</a>
+            </div>
+
+            <!-- 3. Дудбуронларни тозалаш -->
+            <div class="service-card">
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-broom"></i></div>
+                    <h3>3. Дудбуронларни тозалаш</h3>
+                    <p>Мўри ва дудбурон йўлларини куя ҳамда тиқинлардан тозалаш, ис гази хавфининг олдини олиш.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Шамоллатиш тизими кўриги</li>
+                        <li><i class="fa-solid fa-check"></i> Тўлиқ тозалаш ишлари</li>
+                        <li><i class="fa-solid fa-check"></i> Расмий кўрик далолатномаси (акт)</li>
+                    </ul>
+                </div>
+                <a href="#apply" class="btn-card" onclick="selectService('3. Дудбуронларни тозалаш')">Ариза қолдириш</a>
+            </div>
+
+            <!-- 4. Газ лойиҳа ва смета -->
+            <div class="service-card">
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                    <h3>4. Газ лойиҳа ва смета</h3>
+                    <p>Янги ва таъмирланаётган уйлар учун уй ичи газ таъминоти лойиҳаси ҳамда расмий смета ҳужжатлари.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Қурилиш меъёрларига (ШНҚ) мос</li>
+                        <li><i class="fa-solid fa-check"></i> Аниқ смета ҳисоб-китоби</li>
+                        <li><i class="fa-solid fa-check"></i> Лойиҳачи мутахассис бириктириш</li>
+                    </ul>
+                </div>
+                <a href="#apply" class="btn-card" onclick="selectService('4. Газ лойиҳа ва смета')">Ариза қолдириш</a>
+            </div>
+        </div>
+
+        <!-- Telegram Bot Карди -->
+        <div class="bot-banner" id="bot">
+            <div>
+                <h3>📱 Telegram бот орқали 1 дақиқада мурожаат қилинг!</h3>
+                <p>Бизнинг расмий ботимиз орқали навбатсиз ариза қолдиришингиз, шошилинч авария бригадасини чақиришингиз ва аризангиз ҳолатини кузатиб боришингиз мумкин.</p>
+                <a href="https://t.me/bekabad_united_gas_group_bot" target="_blank" class="btn-main" style="background: #0088cc; color: white;">
+                    <i class="fa-brands fa-telegram" style="font-size: 20px;"></i> @bekabad_united_gas_group_bot
+                </a>
+            </div>
+            <div class="qr-wrapper">
+                <img src="bot_qr_code.png" alt="Telegram Bot QR Code" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://t.me/bekabad_united_gas_group_bot'">
+                <span>Камерани QR-кодга қаратинг</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Онлайн Ариза Қолдириш -->
+    <section class="form-section" id="apply">
+        <div class="form-container">
+            <div class="form-info">
+                <div>
+                    <h3>Онлайн Мурожаат</h3>
+                    <p>Аризангиз тўғридан-тўғри диспетчерлик марказимизга келиб тушади ва мутахассисларимиз тез орада боғланади.</p>
+                    
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4>Марказий диспетчер</h4>
+                            <p>+998 99 823 01 88</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div>
+                            <h4>Бекобод ГТБ АДХ</h4>
+                            <p>+998 55 903 22 14</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Манзил</h4>
+                            <p>Тошкент вилояти, Бекобод шаҳри</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="font-size: 12px; color: #93c5fd;">
+                    Иш тартиби: 24/7 (Ҳар куни дам олишсиз)
+                </div>
+            </div>
+
+            <div class="form-body">
+                <h3>Ариза формаси</h3>
+                <div id="formSuccess" class="form-success">
+                    ✅ Раҳмат! Мурожаатингиз қабул қилинди. Диспетчер тез орада сиз билан боғланади!
+                </div>
+                <form id="requestForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="fullName">Исм-фамилиянгиз *</label>
+                        <input type="text" id="fullName" class="form-control" placeholder="Масалан: Анвар Каримов" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Телефон рақамингиз *</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="+998 90 123 45 67" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceType">Хизмат йўналиши *</label>
+                        <select id="serviceType" class="form-control" required>
+                            <option value="1. Газ жиҳозлари носозлиги бўйича">1. Газ жиҳозлари носозлиги</option>
+                            <option value="2. Газ сизиб чиқиши (Шошилинч)">2. Газ сизиб чиқиши (Шошилинч)</option>
+                            <option value="3. Дудбуронларни тозалаш бўйича">3. Дудбуронларни тозалаш</option>
+                            <option value="4. Уй ичи газ лойиҳа ва смета ҳужжатлари">4. Уй ичи газ лойиҳа ва смета</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Яшаш манзилингиз *</label>
+                        <input type="text" id="address" class="form-control" placeholder="Маҳалла, кўча, уй рақами" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">Муаммо ҳақида қўшимча маълумот</label>
+                        <textarea id="comment" class="form-control" placeholder="Қандай носозлик ёки таклифингиз бор?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <i class="fa-solid fa-paper-plane"></i> Мурожаатни юбориш
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h3>«BEKABAD UNITED GAS GROUP» МЧЖ</h3>
+                <p>Аҳоли газ жиҳозларини таъмирлаш, хавфсиз техник хизмат кўрсатиш ҳамда лойиҳа-смета ҳужжатлари бўйича Бекобод шаҳридаги расмий хизмат.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Бўлимлар</h4>
+                <ul>
+                    <li><a href="#services">Хизмат турлари</a></li>
+                    <li><a href="#emergency">Авария рақамлари</a></li>
+                    <li><a href="#apply">Онлайн ариза</a></li>
+                    <li><a href="https://t.me/bekabad_united_gas_group_bot">Telegram бот</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Боғланиш</h4>
+                <ul>
+                    <li><a href="tel:+998998230188">📞 +998 99 823 01 88</a></li>
+                    <li><a href="tel:+998559032214">🚨 +998 55 903 22 14</a></li>
+                    <li><a href="tel:104">🔥 Авария: 104</a></li>
+                    <li>📍 Бекобод ш., Тошкент вил.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 «BEKABAD UNITED GAS GROUP» МЧЖ. Барча ҳуқуқлар ҳимояланган.
+        </div>
+    </footer>
+
+    <script>
+        function selectService(serviceName) {
+            const select = document.getElementById('serviceType');
+            for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].text.includes(serviceName) || select.options[i].value.includes(serviceName)) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            const formSuccess = document.getElementById('formSuccess');
+
+            const payload = {
+                name: document.getElementById('fullName').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('serviceType').value,
+                address: document.getElementById('address').value,
+                comment: document.getElementById('comment').value
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Юборилмоқда...';
+
+            try {
+                // Сервер API га юбориш
+                const response = await fetch('/api/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (response.ok) {
+                    formSuccess.style.display = 'block';
+                    document.getElementById('requestForm').reset();
+                } else {
+                    throw new Error('API request failed');
+                }
+            } catch (err) {
+                // Агар локал файл сифатида очилган бўлса ёки API уланмаган бўлса, фойдаланувчини Телеграм ботга йўналтириш:
+                const tgUrl = `https://t.me/bekabad_united_gas_group_bot?start=website_req`;
+                formSuccess.style.display = 'block';
+                formSuccess.innerHTML = `✅ <b>Раҳмат! Сизнинг мурожаатингиз қабул қилинди!</b><br>Тезкор боғланиш учун: <a href="tel:+998998230188" style="color:#0d47a1;font-weight:bold;">+998 99 823 01 88</a> ёки <a href="${tgUrl}" target="_blank" style="color:#0088cc;font-weight:bold;">Telegram бот орқали тасдиқлаш</a>`;
+                document.getElementById('requestForm').reset();
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Мурожаатни юбориш';
+            }
+        }
+    </script>
+</body>
+</html>
