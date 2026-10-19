@@ -764,6 +764,26 @@
             body {
                 padding-bottom: 80px !important;
             }
+            .nav-links {
+                display: none !important;
+            }
+            .nav-container {
+                justify-content: center;
+                text-align: center;
+            }
+            .top-alert {
+                font-size: 11px;
+                padding: 8px 12px;
+                flex-direction: column;
+                gap: 6px;
+                text-align: center;
+            }
+            .esd-grid {
+                grid-template-columns: 1fr;
+            }
+            .emergency-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
         }
         .mb-btn {
             display: flex;
@@ -1005,6 +1025,10 @@
             align-items: center;
             justify-content: center;
             font-weight: 800;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+
         /* Mobile Apps Download Section */
         .apps-section {
             background: #ffffff;
@@ -1201,7 +1225,7 @@
                 <a href="https://t.me/bekabad_united_gas_group_bot" target="_blank" class="esd-card" style="background: #e0f2fe; border: 2px solid #0284c7;">
                     <div>
                         <div class="esd-label">Телеграм орқали навбатчи</div>
-                        <div class="esd-phone" style="color: #0284c7;">💬 @bekabad_bot</div>
+                        <div class="esd-phone" style="color: #0284c7; font-size: 13px;">💬 @bekabad_united_gas_group_bot</div>
                     </div>
                     <i class="fa-brands fa-telegram" style="font-size: 26px; color: #0284c7;"></i>
                 </a>
@@ -1330,7 +1354,7 @@
                         <i class="fa-solid fa-download"></i> Android (.APK) Юклаб олиш
                     </a>
                     <div style="font-size: 11px; color: #64748b; text-align: center; margin-top: 8px;">
-                        Ҳажми: ~15 MB • Формат: .APK • Бепул
+                        Ҳажми: 11.9 MB • Формат: .APK • Бепул (Kotlin Jetpack Compose)
                     </div>
                 </div>
             </div>
