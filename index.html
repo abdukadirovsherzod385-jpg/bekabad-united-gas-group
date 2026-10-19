@@ -1005,8 +1005,114 @@
             align-items: center;
             justify-content: center;
             font-weight: 800;
+        /* Mobile Apps Download Section */
+        .apps-section {
+            background: #ffffff;
+            padding: 70px 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+        }
+        .app-download-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+        .app-download-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            border-color: #2563eb;
+        }
+        .app-download-card.android-card {
+            border-top: 6px solid #16a34a;
+        }
+        .app-download-card.ios-card {
+            border-top: 6px solid #0f172a;
+        }
+        .app-card-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .badge-android {
+            background: #dcfce7;
+            color: #15803d;
+        }
+        .badge-ios {
+            background: #f1f5f9;
+            color: #334155;
+        }
+        .app-card-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .app-card-desc {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .app-features-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        .app-features-list li {
             font-size: 13px;
-            flex-shrink: 0;
+            color: #334155;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .app-features-list li i {
+            color: #16a34a;
+        }
+        .btn-download-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .btn-download-android {
+            background: #16a34a;
+            color: white;
+        }
+        .btn-download-android:hover {
+            background: #15803d;
+        }
+        .btn-download-ios {
+            background: #0f172a;
+            color: white;
+        }
+        .btn-download-ios:hover {
+            background: #1e293b;
         }
     </style>
 </head>
@@ -1030,6 +1136,7 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#services">Хизматлар</a></li>
+                <li><a href="#apps" style="color: #2563eb; font-weight: 800;"><i class="fa-solid fa-mobile-screen"></i> Иловалар</a></li>
                 <li><a href="#emergency">Шошилинч рақамлар</a></li>
                 <li><a href="#apply">Ариза қолдириш</a></li>
                 <li><a href="#bot">Телеграм Бот</a></li>
@@ -1191,6 +1298,84 @@
                     <i class="fa-solid fa-bolt" style="font-size: 24px; color: #d97706;"></i>
                 </a>
             </div>
+    <!-- Мобил Иловаларни Юклаб Олиш Бўлими (Android APK & iPhone) -->
+    <section class="apps-section" id="apps">
+        <div class="section-header">
+            <span class="section-badge" style="background: #e0f2fe; color: #0369a1;">Тайёр Мобил Дастурлар</span>
+            <h2 class="section-title">📱 «Bekabad Gas» Расмий Мобил Иловалари</h2>
+            <p class="section-desc">Бекобод шаҳри аҳолиси учун махсус ишлаб чиқилган алоҳида Android (APK) ва iPhone (iOS) расмий мобил дастурларини тўғридан-тўғри телефонингизга ўрнатиб олинг.</p>
+        </div>
+
+        <div class="apps-grid">
+            <!-- Android APK Card -->
+            <div class="app-download-card android-card">
+                <div>
+                    <span class="app-card-badge badge-android"><i class="fa-brands fa-android"></i> Android 7.0+ учун</span>
+                    <h3 class="app-card-title">
+                        <i class="fa-brands fa-android" style="color: #16a34a; font-size: 28px;"></i>
+                        BekabadGas.apk
+                    </h3>
+                    <p class="app-card-desc">
+                        Android смартфонлари (Samsung, Xiaomi, Redmi, Honor ва бошқалар) учун тайёр ўрнатиш файли (.APK). Тўғридан-тўғри юклаб олиб, телефонга ўрнатиш мумкин.
+                    </p>
+                    <ul class="app-features-list">
+                        <li><i class="fa-solid fa-circle-check"></i> Илова ичида 104 ва диспетчерга 1 босишда чақирув</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Офлайн режимда ҳам ишлайди</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Аризаларни Telegram бот ва базага бир zumda узатади</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Телеграм ботга тўғридан-тўғри боғланган</li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="BekabadGas.apk" download="BekabadGas.apk" class="btn-download-action btn-download-android">
+                        <i class="fa-solid fa-download"></i> Android (.APK) Юклаб олиш
+                    </a>
+                    <div style="font-size: 11px; color: #64748b; text-align: center; margin-top: 8px;">
+                        Ҳажми: ~15 MB • Формат: .APK • Бепул
+                    </div>
+                </div>
+            </div>
+
+            <!-- iPhone (iOS) Card -->
+            <div class="app-download-card ios-card">
+                <div>
+                    <span class="app-card-badge badge-ios"><i class="fa-brands fa-apple"></i> Apple iOS 14+ учун</span>
+                    <h3 class="app-card-title">
+                        <i class="fa-brands fa-apple" style="color: #0f172a; font-size: 28px;"></i>
+                        BekabadGas (iPhone)
+                    </h3>
+                    <p class="app-card-desc">
+                        iPhone фойдаланувчилари учун Apple расмий бошқарув профили (.mobileconfig). 1 босишда iPhone экранига алоҳида илова бўлиб ўрнатилади.
+                    </p>
+                    <ul class="app-features-list">
+                        <li><i class="fa-solid fa-circle-check"></i> Safari сатрларисиз тўлиқ экранли мустақил илова</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 104 Аварияга тезкор чақирув ва Taptic Engine тебраниши</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Барча хизматларга онлайн ариза қолдириш</li>
+                        <li><i class="fa-solid fa-circle-check"></i> @bekabad_united_gas_group_bot билан тўлиқ интеграция</li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="BekabadGas.mobileconfig" class="btn-download-action btn-download-ios">
+                        <i class="fa-brands fa-apple"></i> iPhone-га Ўрнатиш (.mobileconfig)
+                    </a>
+                    <div style="font-size: 11px; color: #64748b; text-align: center; margin-top: 8px;">
+                        iOS Созламалари орқали 1 босишда ўрнатилади
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manba Kodi (Source Code) bloki -->
+        <div style="max-width: 1200px; margin: 30px auto 0; background: #f1f5f9; border-radius: 16px; padding: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <i class="fa-solid fa-file-zipper" style="font-size: 32px; color: #0284c7;"></i>
+                <div>
+                    <h4 style="font-size: 15px; font-weight: 800; color: #0f172a;">Дастурчилар учун тўлиқ манба коди (Source Code)</h4>
+                    <p style="font-size: 12px; color: #64748b; margin-bottom: 0;">Android Studio (Kotlin) ва Xcode (SwiftUI) лойиҳалари тўлиқ очиқ архивда.</p>
+                </div>
+            </div>
+            <a href="bekabad_gas_mobile_apps.zip" download="bekabad_gas_mobile_apps.zip" style="background: #0284c7; color: white; padding: 10px 20px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 13px;">
+                <i class="fa-solid fa-download"></i> Манба кодини юклаб олиш (.ZIP)
+            </a>
         </div>
     </section>
 
