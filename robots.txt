@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abdukadirovsherzod385-jpg.github.io/bekabad-united-gas-group/sitemap.xml
+Sitemap: https://bekabad-united-gas-group.surge.sh/sitemap.xml
