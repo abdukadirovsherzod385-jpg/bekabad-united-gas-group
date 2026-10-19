@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abdukadirovsherzod385-jpg.github.io/bekabad_united_gas_group_bot/sitemap.xml
