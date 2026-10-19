@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>«BEKABAD UNITED GAS GROUP» MCHJ - Yagona Raqamli Xizmatlar Portali</title>
+    <meta name="description" content="Barcha gaz xizmatlari bitta joyda: Rasmiy Veb-sayt, Telegram bot, Android APK ilova, iPhone ilovasi va 24/7 dispetcherlik xizmati.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a192f">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="«BEKABAD UNITED GAS GROUP» MCHJ - Yagona Portal">
+    <meta property="og:description" content="Rasmiy veb-sayt, Telegram bot, Android APK va favqulodda raqamlar">
+    <meta property="og:image" content="master_qr_poster.png">
+    <meta property="og:type" content="website">
+
+    <style>
+        :root {
+            --bg-color: #0b1329;
+            --card-bg: #131f3f;
+            --card-border: #1e3160;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --danger: #ef4444;
+            --danger-hover: #dc2626;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --tg-color: #229ed9;
+            --ios-color: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 16px 12px 60px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 520px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Profile & Brand Header */
+        .brand-header {
+            background: linear-gradient(135deg, #0d2149, #132b5c);
+            border: 1px solid #234175;
+            border-radius: 24px;
+            padding: 24px 18px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brand-header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(2, 132, 199, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .logo-badge {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 12px;
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(2, 132, 199, 0.5);
+            border: 3px solid #38bdf8;
+            font-size: 38px;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #34d399;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .brand-subtitle {
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        /* Section Headings */
+        .section-label {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #94a3b8;
+            margin: 4px 6px -4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Emergency Speed Dial */
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn-call {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            padding: 14px 10px;
+            border-radius: 16px;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-call:active {
+            transform: scale(0.97);
+        }
+
+        .btn-call-emergency {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            border: 1px solid #ef4444;
+            animation: pulse-danger 2s infinite;
+        }
+
+        @keyframes pulse-danger {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        .btn-call-dispatcher {
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+            color: white;
+            border: 1px solid #38bdf8;
+        }
+
+        .btn-call-full {
+            grid-column: span 2;
+            background: #172554;
+            border: 1px solid #1e40af;
+            color: #93c5fd;
+            padding: 12px;
+            border-radius: 14px;
+            font-size: 13px;
+        }
+
+        .btn-call .number {
+            font-size: 16px;
+            font-weight: 800;
+            margin-top: 2px;
+        }
+
+        .btn-call .desc {
+            font-size: 11px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Hub Navigation Cards */
+        .hub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .hub-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .hub-card:active {
+            transform: scale(0.98);
+            border-color: var(--primary);
+        }
+
+        .hub-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .icon-web { background: rgba(2, 132, 199, 0.2); border: 1px solid rgba(2, 132, 199, 0.4); color: #38bdf8; }
+        .icon-bot { background: rgba(34, 158, 217, 0.2); border: 1px solid rgba(34, 158, 217, 0.4); color: #38bdf8; }
+        .icon-android { background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); color: #34d399; }
+        .icon-ios { background: rgba(148, 163, 184, 0.2); border: 1px solid rgba(148, 163, 184, 0.4); color: #f8fafc; }
+
+        .hub-info {
+            flex-grow: 1;
+        }
+
+        .hub-info-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hub-info-desc {
+            font-size: 12px;
+            color: var(--text-sub);
+            line-height: 1.4;
+        }
+
+        .hub-badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        .badge-hot { background: #dc2626; color: white; }
+        .badge-green { background: #059669; color: white; }
+        .badge-blue { background: #0284c7; color: white; }
+
+        .hub-arrow {
+            color: #64748b;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Quick Request Form */
+        .form-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 18px;
+        }
+
+        .form-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            width: 100%;
+            background: #0b1329;
+            border: 1px solid #1e3160;
+            color: white;
+            padding: 12px 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+            margin-top: 4px;
+        }
+
+        .btn-submit:active {
+            transform: scale(0.98);
+        }
+
+        /* QR Code Share Section */
+        .qr-share-card {
+            background: #111e3b;
+            border: 1px solid #1e3160;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .qr-img-wrapper {
+            background: white;
+            padding: 12px;
+            border-radius: 16px;
+            display: inline-block;
+            margin: 12px auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .qr-img-wrapper img {
+            width: 190px;
+            height: 190px;
+            display: block;
+        }
+
+        .qr-btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .btn-action {
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: white;
+            background: #1e293b;
+            border: 1px solid #334155;
+            cursor: pointer;
+        }
+
+        .btn-action:hover {
+            background: #334155;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 16px 0 10px;
+            font-size: 12px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Alert message */
+        .alert-toast {
+            display: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .alert-success { background: rgba(16, 185, 129, 0.2); border: 1px solid #10b981; color: #34d399; }
+        .alert-error { background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; color: #f87171; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Brand Header -->
+        <header class="brand-header">
+            <div class="logo-badge">🔥</div>
+            <div class="verified-badge">🛡️ RASMIY YAGONA PORTAL</div>
+            <h1 class="brand-title">«BEKABAD UNITED GAS GROUP» MCHJ</h1>
+            <p class="brand-subtitle">Aholi va korxonalar uchun barcha gaz xizmatlari va dasturlarini birlashtiruvchi markaziy portal</p>
+        </header>
+
+        <!-- Emergency Speed Dial -->
+        <div class="section-label">🚨 Favqulodda tezkor qo'ng'iroq (24/7)</div>
+        <div class="emergency-grid">
+            <a href="tel:104" class="btn-call btn-call-emergency">
+                <span class="desc">🚨 Avariya xizmati</span>
+                <span class="number">104</span>
+            </a>
+            <a href="tel:+998998230188" class="btn-call btn-call-dispatcher">
+                <span class="desc">📞 Korxona dispetcheri</span>
+                <span class="number">+998 99 823 01 88</span>
+            </a>
+            <a href="tel:+998559032214" class="btn-call btn-call-full">
+                🏢 Bekobod Shahar Gaz GTB ADX: <b>+998 55 903 22 14</b> (To'g'ridan-to'g'ri bog'lanish)
+            </a>
+        </div>
+
+        <!-- Main Services Hub List -->
+        <div class="section-label">✨ Barcha xizmatlar va ilovalarga kirish</div>
+        <div class="hub-list">
+            
+            <!-- 1. Rasmiy Veb-Sayt -->
+            <a href="index.html" class="hub-card">
+                <div class="hub-icon icon-web">🌐</div>
+                <div class="hub-info">
+                    <div class="hub-info-title">
+                        Rasmiy Veb-Sayt
+                        <span class="hub-badge badge-blue">Asosiy</span>
+                    </div>
+                    <div class="hub-info-desc">To'liq xizmatlar katalogi, narxlar, hisoblagich ma'lumotlari va interaktiv qo'llanma</div>
+                </div>
+                <div class="hub-arrow">↗</div>
+            </a>
+
+            <!-- 2. Rasmiy Telegram Bot -->
+            <a href="https://t.me/bekabad_united_gas_group_bot" target="_blank" rel="noopener" class="hub-card">
+                <div class="hub-icon icon-bot">🤖</div>
+                <div class="hub-info">
+                    <div class="hub-info-title">
+                        Rasmiy Telegram Bot
+                        <span class="hub-badge badge-hot">Tezkor</span>
+                    </div>
+                    <div class="hub-info-desc">Onlayn gaz arizasi topshirish, narxlarni ko'rish va usta bilan tez bog'lanish</div>
+                </div>
+                <div class="hub-arrow">↗</div>
+            </a>
+
+            <!-- 3. Android Mobil Ilova -->
+            <a href="BekabadGas.apk" download class="hub-card">
+                <div class="hub-icon icon-android">📱</div>
+                <div class="hub-info">
+                    <div class="hub-info-title">
+                        Android Mobil Ilova (.APK)
+                        <span class="hub-badge badge-green">11.9 MB</span>
+                    </div>
+                    <div class="hub-info-desc">Telefoningizga o'rnatib oling. Favqulodda raqamlar va usta chaqirish doimo yoningizda</div>
+                </div>
+                <div class="hub-arrow">⬇</div>
+            </a>
+
+            <!-- 4. iPhone (iOS) Ilovasi -->
+            <a href="BekabadGas.mobileconfig" class="hub-card">
+                <div class="hub-icon icon-ios">🍏</div>
+                <div class="hub-info">
+                    <div class="hub-info-title">
+                        iPhone (iOS) Ilovasi
+                        <span class="hub-badge badge-blue">Apple</span>
+                    </div>
+                    <div class="hub-info-desc">Apple Safari orqali o'rnatish profili (Bosh ekranga to'liq ekranli ilova qo'shish)</div>
+                </div>
+                <div class="hub-arrow">⬇</div>
+            </a>
+
+        </div>
+
+        <!-- Tezkor Gaz Arizasi Formasi -->
+        <div class="form-card">
+            <div class="form-title">📝 Tezkor Gaz Ustasi Chaqirish</div>
+            <form id="portalQuickForm" onsubmit="submitPortalForm(event)">
+                <div class="form-group">
+                    <input type="text" id="portalName" class="form-control" placeholder="Ism familiyangiz (F.I.SH)" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="portalPhone" class="form-control" placeholder="Telefon raqamingiz (+998 ...)" required value="+998">
+                </div>
+                <div class="form-group">
+                    <select id="portalService" class="form-control" required>
+                        <option value="Газ плитаси / колонка / котёл таъмири">🔧 Gaz jihozi nosozligi (plitka, kotyol, kolonka)</option>
+                        <option value="Газ сизиб чиқиши (ШОШИЛИНЧ)">🚨 Gaz sizib chiqishi (Shoshilinch holat)</option>
+                        <option value="Дудбурон тозалаш (Мўри тозалаш ва далолатнома)">🧹 Dudburon tozalash (Mo'ri tozalash)</option>
+                        <option value="Уй ичи газ лойиҳаси ва ҳисоблагич">📐 Gaz hisoblagich va loyiha xizmati</option>
+                        <option value="Бошқа савол ёки маслаҳат">💬 Boshqa gaz masalasi</option>
+                    </select>
+                </div>
+                <button type="submit" id="portalBtn" class="btn-submit">🚀 Arizani yuborish</button>
+                <div id="portalAlert" class="alert-toast"></div>
+            </form>
+        </div>
+
+        <!-- Master QR Kod Bo'limi -->
+        <div class="qr-share-card">
+            <div style="font-size: 15px; font-weight: 700; color: white;">📸 Yagona Master QR-Kod</div>
+            <p style="font-size: 12px; color: #94a3b8; margin-top: 4px;">Ushbu QR-kodni skaner qilib istalgan odam ushbu portalga kirishi mumkin</p>
+            
+            <div class="qr-img-wrapper">
+                <img src="master_qr_code.png" alt="Master QR Code «BEKABAD UNITED GAS GROUP» MCHJ">
+            </div>
+
+            <div class="qr-btn-group">
+                <a href="master_qr_code.png" download="BekabadGas_Master_QR.png" class="btn-action">
+                    💾 QR Yuklab olish
+                </a>
+                <a href="master_qr_poster.html" target="_blank" class="btn-action">
+                    🖨️ Plakatni chop etish
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div>📍 Toshkent viloyati, Bekobod shahri • 24/7 Xizmat</div>
+            <div>© 2026 «BEKABAD UNITED GAS GROUP» MCHJ. Barcha huquqlar himoyalangan.</div>
+        </footer>
+
+    </div>
+
+    <script>
+        async function submitPortalForm(e) {
+            e.preventDefault();
+            const btn = document.getElementById('portalBtn');
+            const alertBox = document.getElementById('portalAlert');
+            const name = document.getElementById('portalName').value.trim();
+            const phone = document.getElementById('portalPhone').value.trim();
+            const service = document.getElementById('portalService').value;
+
+            if (!name || !phone || phone.length < 9) {
+                alertBox.className = 'alert-toast alert-error';
+                alertBox.textContent = 'Iltimos, ismingiz va telefon raqamingizni to\'liq kiriting!';
+                alertBox.style.display = 'block';
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = 'Yuborilmoqda...';
+
+            const botToken = '8711588836:AAEJp5s1AkJgIHW1eOynaSetaDgI9OSw2UQ';
+            const adminId = '5180393420';
+
+            const msg = `🚨 <b>YANGI ARIZA (YAGONA QR PORTALDAN):</b>\n\n` +
+                        `👤 <b>Mijoz:</b> ${name}\n` +
+                        `📞 <b>Telefon:</b> ${phone}\n` +
+                        `🛠 <b>Xizmat:</b> ${service}\n` +
+                        `⏰ <b>Vaqt:</b> ${new Date().toLocaleString('uz-UZ')}\n` +
+                        `🌐 <b>Manba:</b> Yagona QR Portal (bekabadgas.surge.sh/qr.html)`;
+
+            try {
+                const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: adminId,
+                        text: msg,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                if (res.ok) {
+                    alertBox.className = 'alert-toast alert-success';
+                    alertBox.textContent = '✅ Arizangiz muvaffaqiyatli qabul qilindi! Tez orada dispetcher siz bilan bog\'lanadi.';
+                    alertBox.style.display = 'block';
+                    document.getElementById('portalQuickForm').reset();
+                    document.getElementById('portalPhone').value = '+998';
+                } else {
+                    throw new Error('Telegram botga yetkazishda xatolik');
+                }
+            } catch (err) {
+                alertBox.className = 'alert-toast alert-success';
+                alertBox.textContent = '✅ Arizangiz qayd etildi! Agar shoshilinch bo\'lsa, to\'g\'ridan-to\'g\'ri +998 99 823 01 88 raqamiga qo\'ng\'iroq qiling.';
+                alertBox.style.display = 'block';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '🚀 Arizani yuborish';
+            }
+        }
+    </script>
+</body>
+</html>

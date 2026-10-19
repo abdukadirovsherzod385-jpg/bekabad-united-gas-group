@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>«BEKABAD UNITED GAS GROUP» MCHJ - Yagona Master QR Plakat</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .poster {
+            width: 100%;
+            max-width: 680px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            text-align: center;
+            border: 2px solid #cbd5e1;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0a2540, #0d47a1);
+            color: white;
+            padding: 34px 20px 24px;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            color: #ffd54f;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .header .badge {
+            display: inline-block;
+            margin-top: 10px;
+            background: #0284c7;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 5px 16px;
+            border-radius: 20px;
+        }
+
+        .qr-section {
+            padding: 30px 20px 20px;
+            background: #ffffff;
+        }
+
+        .qr-card {
+            display: inline-block;
+            padding: 18px;
+            background: #f8fafc;
+            border-radius: 20px;
+            border: 3px solid #cbd5e1;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .qr-card img {
+            width: 300px;
+            height: 300px;
+            display: block;
+        }
+
+        .scan-instruction {
+            margin-top: 16px;
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .portal-url {
+            margin-top: 4px;
+            font-size: 17px;
+            font-weight: 700;
+            color: #0284c7;
+        }
+
+        .features {
+            text-align: left;
+            padding: 20px 36px;
+            background: #f8fafc;
+            border-top: 2px dashed #e2e8f0;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .features h3 {
+            font-size: 16px;
+            color: #1e293b;
+            margin-bottom: 12px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .feature-item {
+            font-size: 13px;
+            color: #334155;
+            background: white;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 24px 20px;
+        }
+
+        .footer .phones-row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .phone-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .phone-badge .label {
+            font-size: 11px;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .phone-badge .val {
+            font-size: 16px;
+            color: #38bdf8;
+            font-weight: 800;
+        }
+
+        .phone-badge.danger .val {
+            color: #f87171;
+        }
+
+        .footer .address {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .actions {
+            margin-top: 24px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-print {
+            padding: 14px 32px;
+            background: #0284c7;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+            text-decoration: none;
+        }
+
+        .btn-print:hover {
+            background: #0369a1;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .poster {
+                box-shadow: none;
+                border: 1px solid #bbb;
+                max-width: 100%;
+                border-radius: 0;
+            }
+            .actions {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poster">
+        <div class="header">
+            <h1>«BEKABAD UNITED GAS GROUP» MCHJ</h1>
+            <div class="subtitle">Aholi va korxonalar uchun yagona raqamli gaz xizmatlari</div>
+            <div class="badge">⚡ Bitta QR-kod orqali barcha xizmatlar va ilovalar</div>
+        </div>
+
+        <div class="qr-section">
+            <div class="qr-card">
+                <img src="master_qr_code.png" alt="Master QR Code «BEKABAD UNITED GAS GROUP» MCHJ">
+            </div>
+            <div class="scan-instruction">📸 Kamerangizni QR-kodga qarating!</div>
+            <div class="portal-url">bekabadgas.surge.sh/qr.html</div>
+        </div>
+
+        <div class="features">
+            <h3>✨ QR-KODNI SKANER QILIB QUYIDAGILARGA KIRISHINGIZ MUMKIN:</h3>
+            <div class="features-grid">
+                <div class="feature-item">🌐 <b>Rasmiy Veb-Sayt</b> (barcha ma'lumotlar)</div>
+                <div class="feature-item">🤖 <b>Rasmiy Telegram Bot</b> (onlayn ariza)</div>
+                <div class="feature-item">📱 <b>Android Ilova</b> (.APK yuklab olish)</div>
+                <div class="feature-item">🍏 <b>iPhone (iOS)</b> ekranga o'rnatish</div>
+                <div class="feature-item">🔧 <b>Tezkor usta chaqirish</b> shakli</div>
+                <div class="feature-item">🚨 <b>104 va dispetcherga</b> 1 bosishda qo'ng'iroq</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="phones-row">
+                <div class="phone-badge">
+                    <div class="label">📞 Korxona dispetcheri (24/7)</div>
+                    <div class="val">+998 99 823 01 88</div>
+                </div>
+                <div class="phone-badge danger">
+                    <div class="label">🚨 Gaz avariya xizmati</div>
+                    <div class="val">104</div>
+                </div>
+                <div class="phone-badge">
+                    <div class="label">🏢 Bekobod Sh. Gaz GTB ADX</div>
+                    <div class="val">+998 55 903 22 14</div>
+                </div>
+            </div>
+            <div class="address">Toshkent viloyati, Bekobod shahri • 24/7 Tezkor xizmat</div>
+        </div>
+    </div>
+
+    <div class="actions">
+        <button class="btn-print" onclick="window.print()">🖨️ Plakatni chop etish (Print / PDF)</button>
+        <a href="qr.html" class="btn-print" style="background: #1e293b;">📱 Portaldan ko'rish</a>
+    </div>
+
+</body>
+</html>
