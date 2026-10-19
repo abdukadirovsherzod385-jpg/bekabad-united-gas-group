@@ -18,7 +18,21 @@
     <meta property="og:url" content="https://bekabad-united-gas-group.surge.sh/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="uz_UZ">
-    <meta property="og:image" content="https://bekabad-united-gas-group.surge.sh/bot_qr_code.png">
+    <meta property="og:image" content="https://bekabad-united-gas-group.surge.sh/icon-512.png">
+
+    <!-- PWA & Mobile Web App теглари (Android & iPhone) -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#d32f2f">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Bekobod Gaz">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    
+    <!-- Telegram Mini App SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
     <!-- Google учун Микроформат (Schema.org JSON-LD) -->
     <script type="application/ld+json">
@@ -722,17 +736,277 @@
             font-size: 13px;
         }
 
-        /* Responsive */
-        @media (max-width: 900px) {
-            .hero-container, .form-container, .bot-banner, .footer-container {
-                grid-template-columns: 1fr;
+        /* Mobile Sticky Bottom Bar */
+        .mobile-bottom-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 -4px 25px rgba(0,0,0,0.18);
+            z-index: 9999;
+            padding: 8px 10px;
+            border-top: 1px solid #e2e8f0;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 8px;
+            align-items: center;
+        }
+        @media (min-width: 769px) {
+            .mobile-bottom-bar {
+                display: none !important;
             }
-            .hero h1 {
-                font-size: 32px;
+        }
+        @media (max-width: 768px) {
+            .mobile-bottom-bar {
+                display: grid !important;
             }
-            .nav-links {
-                display: none;
+            body {
+                padding-bottom: 80px !important;
             }
+        }
+        .mb-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 8px 4px;
+            border-radius: 12px;
+            transition: transform 0.1s;
+        }
+        .mb-btn:active {
+            transform: scale(0.95);
+        }
+        .mb-btn i {
+            font-size: 18px;
+            margin-bottom: 3px;
+        }
+        .mb-emergency {
+            background: #dc2626;
+            color: #ffffff !important;
+            box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
+            animation: pulseAvariya 1.8s infinite;
+        }
+        .mb-disp {
+            background: #0d47a1;
+            color: #ffffff !important;
+        }
+        .mb-bot {
+            background: #0088cc;
+            color: #ffffff !important;
+        }
+        .mb-app {
+            background: #16a34a;
+            color: #ffffff !important;
+        }
+
+        @keyframes pulseAvariya {
+            0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
+
+        /* Top Speed-Dial Bar */
+        .emergency-speed-dial {
+            background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 100%);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(185, 28, 28, 0.25);
+            margin: 15px auto;
+            max-width: 1200px;
+            border: 2px solid #f87171;
+        }
+        .esd-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .esd-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .esd-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+        }
+        .esd-card {
+            background: rgba(255, 255, 255, 0.95);
+            color: #0f172a;
+            padding: 12px 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.2s;
+        }
+        .esd-card:hover {
+            transform: translateY(-2px);
+            background: #ffffff;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+        .esd-card-danger {
+            background: #fee2e2;
+            border: 2px solid #ef4444;
+        }
+        .esd-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #64748b;
+            font-weight: 600;
+        }
+        .esd-phone {
+            font-size: 17px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+        .esd-phone-red {
+            color: #dc2626;
+            font-size: 20px;
+        }
+
+        /* PWA Banner */
+        .pwa-banner {
+            background: #ffffff;
+            border: 2px solid #2563eb;
+            border-radius: 16px;
+            padding: 14px 20px;
+            max-width: 1200px;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);
+        }
+        .pwa-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .pwa-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .pwa-text h4 {
+            font-size: 15px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+        .pwa-text p {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 0;
+        }
+        .pwa-btns {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn-pwa-android {
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        .btn-pwa-ios {
+            background: #0f172a;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        /* Modal for iOS Instructions */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.65);
+            backdrop-filter: blur(4px);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-card {
+            background: white;
+            max-width: 480px;
+            width: 100%;
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            font-size: 24px;
+            color: #64748b;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .modal-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin: 16px 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .step-num {
+            background: #2563eb;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 13px;
+            flex-shrink: 0;
         }
     </style>
 </head>
@@ -763,6 +1037,70 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Мобил иловани ўрнатиш панели (Android & iPhone) -->
+    <div class="pwa-banner" id="pwaBanner">
+        <div class="pwa-info">
+            <img src="icon-192.png" alt="App Icon" class="pwa-icon">
+            <div class="pwa-text">
+                <h4>«Bekabad Gas» расмий мобил иловаси</h4>
+                <p>Телефонингизга ўрнатиб олинг — авария ва диспетчерга 1 босишда тезкор қўнғироқ қилинг!</p>
+            </div>
+        </div>
+        <div class="pwa-btns">
+            <button class="btn-pwa-android" onclick="installAndroidPWA()" id="installAndroidBtn">
+                <i class="fa-brands fa-android"></i> Android иловаси
+            </button>
+            <button class="btn-pwa-ios" onclick="openIosModal()">
+                <i class="fa-brands fa-apple"></i> iPhone-га қўшиш
+            </button>
+        </div>
+    </div>
+
+    <!-- Тезкор Фавқулодда Чақирув Панели (Speed Dial) -->
+    <div style="padding: 0 20px;">
+        <div class="emergency-speed-dial">
+            <div class="esd-header">
+                <div class="esd-title">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: #facc15; font-size: 20px;"></i>
+                    <span>Фавқулодда тезкор қўнғироқлар (24/7 Шошилинч)</span>
+                </div>
+                <span style="font-size: 12px; background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 20px;">
+                    <i class="fa-solid fa-bolt" style="color: #facc15;"></i> Рақамни босиб тўғридан-тўғри уланинг
+                </span>
+            </div>
+            <div class="esd-grid">
+                <a href="tel:104" class="esd-card esd-card-danger" onclick="vibrateDevice()">
+                    <div>
+                        <div class="esd-label">Газ авария-диспетчерлик</div>
+                        <div class="esd-phone esd-phone-red">🔥 104 (Авария)</div>
+                    </div>
+                    <i class="fa-solid fa-phone-volume" style="font-size: 24px; color: #dc2626;"></i>
+                </a>
+                <a href="tel:+998998230188" class="esd-card" onclick="vibrateDevice()">
+                    <div>
+                        <div class="esd-label">Корхона бош диспетчери</div>
+                        <div class="esd-phone">📞 99 823 01 88</div>
+                    </div>
+                    <i class="fa-solid fa-phone" style="font-size: 22px; color: #0d47a1;"></i>
+                </a>
+                <a href="tel:+998559032214" class="esd-card" onclick="vibrateDevice()">
+                    <div>
+                        <div class="esd-label">Бекобод шаҳар газ ГТБ АДХ</div>
+                        <div class="esd-phone">☎️ 55 903 22 14</div>
+                    </div>
+                    <i class="fa-solid fa-phone" style="font-size: 22px; color: #b91c1c;"></i>
+                </a>
+                <a href="https://t.me/bekabad_united_gas_group_bot" target="_blank" class="esd-card" style="background: #e0f2fe; border: 2px solid #0284c7;">
+                    <div>
+                        <div class="esd-label">Телеграм орқали навбатчи</div>
+                        <div class="esd-phone" style="color: #0284c7;">💬 @bekabad_bot</div>
+                    </div>
+                    <i class="fa-brands fa-telegram" style="font-size: 26px; color: #0284c7;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Қисми -->
     <section class="hero">
@@ -1052,7 +1390,122 @@
         </div>
     </footer>
 
+    <!-- Мобил қурилмалар учун доимий пастки авария панели (Android & iPhone) -->
+    <div class="mobile-bottom-bar">
+        <a href="tel:104" class="mb-btn mb-emergency" onclick="vibrateDevice()">
+            <i class="fa-solid fa-phone-volume"></i>
+            <span>104 АВАРИЯ</span>
+        </a>
+        <a href="tel:+998998230188" class="mb-btn mb-disp" onclick="vibrateDevice()">
+            <i class="fa-solid fa-headset"></i>
+            <span>Диспетчер</span>
+        </a>
+        <a href="https://t.me/bekabad_united_gas_group_bot" target="_blank" class="mb-btn mb-bot">
+            <i class="fa-brands fa-telegram"></i>
+            <span>Telegram</span>
+        </a>
+        <a href="#apply" class="mb-btn mb-app" onclick="triggerPwaOrScroll()">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <span>Илова</span>
+        </a>
+    </div>
+
+    <!-- iPhone (Safari) учун ўрнатиш йўриқномаси модали -->
+    <div class="modal-overlay" id="iosModal" onclick="closeIosModal(event)">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeIosModal(null)">&times;</button>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="icon-192.png" style="width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);" alt="Logo">
+                <h3 style="font-size: 18px; font-weight: 800; margin-top: 10px; color: #0f172a;">iPhone (iOS) экранга қўшиш</h3>
+                <p style="font-size: 13px; color: #64748b;">Илова сифатида 1 босишда ишга тушириш учун қуйидаги 2 та оддий қадамни бажаринг:</p>
+            </div>
+            <div class="modal-step">
+                <div class="step-num">1</div>
+                <div>Safari браузери пастидаги <b>«Улашиш» (Share)</b> белгисини <i class="fa-solid fa-arrow-up-from-bracket" style="color: #2563eb;"></i> босинг.</div>
+            </div>
+            <div class="modal-step">
+                <div class="step-num">2</div>
+                <div>Очилган менюни сал пастга суриб, <b>«Бош экранга қўшиш» (Add to Home Screen)</b> <i class="fa-regular fa-square-plus" style="color: #2563eb;"></i> тугмасини танланг.</div>
+            </div>
+            <div class="modal-step">
+                <div class="step-num">3</div>
+                <div>Тепадаги <b>«Қўшиш» (Add)</b> ни босинг. Илова телефонингиз экранига тушади!</div>
+            </div>
+            <button onclick="closeIosModal(null)" style="width: 100%; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 700; margin-top: 15px; cursor: pointer;">
+                Тушунарли
+            </button>
+        </div>
+    </div>
+
     <script>
+        // 1. Service Worker рўйхатдан ўтказиш (PWA)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker фаол:', reg.scope))
+                    .catch(err => console.log('SW хатолик:', err));
+            });
+        }
+
+        // 2. Telegram WebApp интергацияси
+        if (window.Telegram && window.Telegram.WebApp) {
+            try {
+                window.Telegram.WebApp.ready();
+                window.Telegram.WebApp.expand();
+            } catch(e) {}
+        }
+
+        // 3. Тезкор вибро-жавоб (Vibration API)
+        function vibrateDevice() {
+            if (navigator.vibrate) {
+                navigator.vibrate([100, 50, 100]);
+            }
+        }
+
+        // 4. Android PWA Ўрнатиш
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            const btn = document.getElementById('installAndroidBtn');
+            if (btn) btn.style.display = 'inline-flex';
+        });
+
+        function installAndroidPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('Илова ўрнатилди');
+                    }
+                    deferredPrompt = null;
+                });
+            } else {
+                alert("Иловани ўрнатиш учун браузерингиз менюсидан 'Иловани ўрнатиш' (Установить приложение) тугмасини босинг.");
+            }
+        }
+
+        // 5. iPhone Модали
+        function openIosModal() {
+            document.getElementById('iosModal').style.display = 'flex';
+        }
+        function closeIosModal(e) {
+            if (!e || e.target.id === 'iosModal' || e.target.className === 'modal-close') {
+                document.getElementById('iosModal').style.display = 'none';
+            }
+        }
+
+        function triggerPwaOrScroll() {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if (isIOS) {
+                openIosModal();
+            } else if (deferredPrompt) {
+                installAndroidPWA();
+            } else {
+                window.location.hash = 'apply';
+            }
+        }
+
         function selectService(serviceName) {
             const select = document.getElementById('serviceType');
             for (let i = 0; i < select.options.length; i++) {
